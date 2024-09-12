@@ -7,6 +7,13 @@ const app = express();
 
 const cors = require("cors");
 
+app.use(
+  cors({
+    credentials: true,
+    orign: ["http://localhost:5173"],
+  })
+);
+
 app.use(express.json());
 
 //?Import mongoose
