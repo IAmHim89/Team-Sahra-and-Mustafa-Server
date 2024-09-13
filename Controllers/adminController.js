@@ -1,13 +1,13 @@
 //! Admin Controller
+//Import Necessary packages here
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const Admin = require("../Models/adminModel");
 
 // Secret key for JWT (should be stored in environment variables for production)
-const SECRET_KEY = "my_secret_key";
 
-// ? POST Request - Admin Registration (Sign Up)
+// POST Request - Admin Registration (Signin)
 router.post("/signup", async (req, res) => {
   try {
     // Create a new admin by hashing the password
@@ -17,9 +17,10 @@ router.post("/signup", async (req, res) => {
     });
 
     // Generate a JWT token for the new admin
-    const token = jwt.sign({ id: newAdmin._id }, SECRET_KEY, {
+    const token = jwt.sign({ id: newAdmin._id }, process.env.JWT_SECRET, {
       expiresIn: "2 days", // Token will expire in 2 days
     });
+
     // Send successful response back with created admin and token
     res.status(200).json({
       Created: newAdmin,
