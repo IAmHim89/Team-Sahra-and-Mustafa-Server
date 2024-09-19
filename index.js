@@ -13,8 +13,13 @@ app.use(
     orign: ["http://localhost:5173"],
   })
 );
+
 //! json call
 app.use(express.json());
+
+const adminController = require("./Controllers/adminController");
+
+app.use("/admin", adminController);
 
 //?Import mongoose
 const mongoose = require("mongoose");
