@@ -58,9 +58,10 @@ router.post("/signin", async (req, res) => {
     }
 
     // Generate a JWT token if the login is successful
-    const token = jwt.sign({ id: admin._id }, SECRET_KEY, {
+    const token = jwt.sign({ id: admin._id }, JWT_SECRET, {
       expiresIn: "1 day", // Token will expire in 1 day
     });
+    res.json({ token });
 
     // Send success response with the admin data and token
     res.status(200).json({

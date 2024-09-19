@@ -17,7 +17,12 @@ app.use(
 //! json call
 app.use(express.json());
 
+//import validate-session
+const validateSession = require("./middleware/validate_session");
+
+// import controllers
 const adminController = require("./Controllers/adminController");
+app.use(validateSession);
 
 app.use("/admin", adminController);
 
