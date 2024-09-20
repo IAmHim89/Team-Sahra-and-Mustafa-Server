@@ -22,6 +22,7 @@ const validateSession = require("./middleware/validate_session");
 
 // import controllers
 const adminController = require("./Controllers/adminController");
+//add validaation here
 app.use("/admin", adminController);
 app.use(validateSession);
 
