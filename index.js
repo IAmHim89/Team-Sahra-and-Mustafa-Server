@@ -22,15 +22,14 @@ const validateSession = require("./middleware/validate_session");
 
 // import controllers
 const adminController = require("./Controllers/adminController");
-app.use(validateSession);
-
 app.use("/admin", adminController);
+app.use(validateSession);
 
 //?Import mongoose
 const mongoose = require("mongoose");
 
 //connection url variable
-const MONGODB = process.env.MONGO_URL + process.env.MONGO_NAME;
+const MONGODB = process.env.MONGODB_URI;
 
 //connection middleware for mongoose
 mongoose.connect(MONGODB);
@@ -44,7 +43,7 @@ const PORT = process.env.MYPORT || 8080;
 //!Eventlistener to check connection
 db.once("open", async () => {
   console.log("*".repeat(10));
-  console.log(`Succesfully Connected: \n ${MONGODB}`);
+  console.log(`Succesfully Connected to Database:`);
   console.log("*".repeat(10));
 });
 //!Server connection
