@@ -13,6 +13,7 @@ app.use(
     orign: ["http://localhost:5173"],
   })
 );
+app.use(express.urlencoded({ extended: true }));
 
 //! json call
 app.use(express.json());
