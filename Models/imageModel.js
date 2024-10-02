@@ -6,7 +6,7 @@ const imageSchema = new mongoose.Schema({
   },
 
   myFile: {
-    type: String,
+    type: Object,
   },
 });
 
