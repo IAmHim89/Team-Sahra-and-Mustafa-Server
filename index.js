@@ -27,7 +27,6 @@ const adminController = require("./Controllers/adminController");
 const imgController = require("./Controllers/imageController");
 //add validaation here
 app.use("/admin", adminController);
-app.use(validateSession);
 app.use("/image", imgController);
 
 //?Import mongoose
