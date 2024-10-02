@@ -6,7 +6,7 @@ router.post("/uploadImg", async (req, res) => {
   try {
     const images = new Image({
       name: req.body.name,
-      myFile: req.body.myFile,
+      mgyFile: req.body.myFile,
     });
 
     const uploadedImg = await images.save();
