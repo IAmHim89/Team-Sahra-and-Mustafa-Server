@@ -49,4 +49,19 @@ router.get("/all", async (req, res) => {
   }
 });
 
+router.put("/update/:id", upload.single("image"), async (req, res) => {
+  try {
+    const updateImage = await Image.findByIdAndUpdate(
+      req.params.id,
+      { myFile: req.file },
+      { new: true }
+    );
+    res.status(200).json({ updateImage });
+  } catch (err) {
+    res.status(500).json({
+      Error: err.message,
+    });
+  }
+});
+
 module.exports = router;
