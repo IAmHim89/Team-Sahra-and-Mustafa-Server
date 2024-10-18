@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get("/hello", (req, res) => {
-  res.send("Hello");
+  res.send("Hell o");
 });
 
 //import validate-session
