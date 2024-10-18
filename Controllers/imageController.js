@@ -63,5 +63,19 @@ router.put("/update/:id", upload.single("image"), async (req, res) => {
     });
   }
 });
+router.delete("/delete/:id", upload.single("image"), async (req, res) => {
+  try {
+    const deleteImage = await Image.findByIdAndDelete(
+      req.params.id,
+      { myFile: req.file }
+      // { new: true }
+    );
+    res.status(200).json({ deleteImage });
+  } catch (err) {
+    res.status(500).json({
+      Error: err.message,
+    });
+  }
+});
 
 module.exports = router;
