@@ -18,6 +18,10 @@ app.use(express.urlencoded({ extended: true }));
 //! json call
 app.use(express.json());
 
+app.get("/hello", (req, res) => {
+  res.send("Hello");
+});
+
 //import validate-session
 const validateSession = require("./middleware/validate_session");
 
